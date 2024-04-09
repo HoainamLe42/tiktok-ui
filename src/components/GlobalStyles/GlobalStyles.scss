@@ -4,9 +4,13 @@
 
 :root {
     --primary: #fe2c55;
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1464px;
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -16,6 +20,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
     font-size: 1.6rem;
     // Optimize text rendering speed
     text-rendering: optimizeSpeed;
