@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleXmark,
+    faSpinner,
+    faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -11,8 +15,45 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import Menu from '~/components/Popper/Menu';
+import { faEarthAmerica } from '@fortawesome/free-solid-svg-icons';
+import { faEarthAsia } from '@fortawesome/free-solid-svg-icons';
+import { faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
+import { faEarthEurope } from '@fortawesome/free-solid-svg-icons';
+import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
+
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faVideo} />,
+        title: 'LIVE Creator Hub',
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faEarthEurope} />,
+        title: 'EngLish',
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts',
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faMoon} />,
+        title: 'Dark mode',
+    },
+];
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
@@ -32,7 +73,11 @@ function Header() {
                     interactive
                     visible={searchResult.length > 0}
                     render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        <div
+                            className={cx('search-result')}
+                            tabIndex="-1"
+                            {...attrs}
+                        >
                             <PopperWrapper>
                                 <h4 className={cx('search-title')}>Accounts</h4>
                                 <AccountItem />
@@ -47,7 +92,10 @@ function Header() {
                         <button className={cx('clear')}>
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button>
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+                        <FontAwesomeIcon
+                            className={cx('loading')}
+                            icon={faSpinner}
+                        />
 
                         <button className={cx('search-btn')}>
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -57,10 +105,21 @@ function Header() {
 
                 {/* Actions Button */}
                 <div className={cx('actions')}>
-                    <Button text outline className={cx('custom-upload')} leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                    <Button
+                        text
+                        outline
+                        className={cx('custom-upload')}
+                        leftIcon={<FontAwesomeIcon icon={faPlus} />}
+                    >
                         Upload
                     </Button>
                     <Button primary>Log in</Button>
+
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            {<FontAwesomeIcon icon={faEllipsisVertical} />}
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
