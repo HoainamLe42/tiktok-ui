@@ -99,3 +99,12 @@
         color: inherit;
     }
 }
+
+.custom-upload {
+    border-color: #ccc;
+    color: inherit;
+
+    &:hover {
+        background-color: transparent;
+    }
+}
