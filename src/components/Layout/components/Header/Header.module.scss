@@ -27,6 +27,7 @@
 
 .search {
     position: relative;
+    margin-left: 200px;
 
     display: flex;
     align-items: center;
@@ -101,11 +102,22 @@
 }
 
 .custom-upload {
+    padding: 5px 18px;
     border-color: #ccc;
     color: inherit;
 
     &:hover {
         background-color: transparent;
+    }
+}
+
+// Actions
+.actions {
+    display: flex;
+    align-items: center;
+
+    &-user {
+        margin-left: 20px;
     }
 }
 
@@ -115,4 +127,22 @@
     padding: 10px 15px 5px 10px;
 
     background-color: transparent;
+}
+
+.action-btn {
+    font-size: 2.6rem;
+    padding: 5px 15px;
+    color: rgb(22, 24, 35);
+    background-color: transparent;
+}
+
+.user-avatar {
+    margin-left: 24px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: center center / cover no-repeat;
+    user-select: none;
+    cursor: pointer;
 }
