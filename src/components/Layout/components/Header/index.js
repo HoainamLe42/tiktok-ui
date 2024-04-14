@@ -37,6 +37,8 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { InboxIcon, MessagesIcon, SearchIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -168,7 +170,7 @@ function Header() {
                         />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -190,7 +192,9 @@ function Header() {
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faEnvelope} />
+                                    <MessagesIcon
+                                        className={cx('messages-icon')}
+                                    />
                                 </button>
                             </Tippy>
 
@@ -200,7 +204,7 @@ function Header() {
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faComments} />
+                                    <InboxIcon className={cx('inbox-icon')} />
                                 </button>
                             </Tippy>
                         </div>
@@ -215,10 +219,11 @@ function Header() {
                         onChange={handleMenuChange}
                     >
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://scontent-itm1-1.xx.fbcdn.net/v/t39.30808-6/370436133_2337949819721145_3695014830121686872_n.jpg?stp=cp6_dst-jpg&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=bvVdbPZJU9AAb6Y8R5D&_nc_ht=scontent-itm1-1.xx&oh=00_AfCFjhaL2Mz4jS3ZcxDnf9pBu_csaiGvn-vWcY5UTXcyTw&oe=661FB1A8"
                                 alt="HoaiNam Le"
+                                fallback="https://htmlcss.fullstack.edu.vn/assets/f8_icon.png"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
