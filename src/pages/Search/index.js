@@ -1,5 +1,5 @@
-function Upload() {
-    return <h2>Upload</h2>;
+function Search() {
+    return <h2>Search</h2>;
 }
 
-export default Upload;
+export default Search;

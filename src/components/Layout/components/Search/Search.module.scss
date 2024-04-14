@@ -61,6 +61,20 @@
 
     right: calc(var(--search-button-width) + 12px);
 }
+
+.loading {
+    animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .search-btn {
     margin-right: -16px;
     width: var(--search-button-width);

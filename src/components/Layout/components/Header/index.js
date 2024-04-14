@@ -117,7 +117,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="TikTok" />
+                <a href="/">
+                    <img src={images.logo} alt="TikTok" />
+                </a>
 
                 <Search />
 
