@@ -15,10 +15,12 @@ import {
     faCoins,
     faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { InboxIcon, MessagesIcon } from '~/components/Icons';
 
+import routesConfig from '~/config/routes';
 import Search from '../Search';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
@@ -117,40 +119,27 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <a href="/">
+                <Link to={routesConfig.home} className={cx('logo-link')}>
                     <img src={images.logo} alt="TikTok" />
-                </a>
+                </Link>
 
                 <Search />
 
                 <div className={cx('actions')}>
-                    <Button
-                        text
-                        outline
-                        className={cx('custom-upload')}
-                        leftIcon={<FontAwesomeIcon icon={faPlus} />}
-                    >
+                    <Button text outline className={cx('custom-upload')} leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                         Upload
                     </Button>
                     {currentUser ? (
                         <div className={cx('actions-user')}>
-                            <Tippy
-                                delay={[0, 200]}
-                                content="Messages"
-                                placement="bottom"
-                            >
+                            <Tippy delay={[0, 200]} content="Messages" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <MessagesIcon
-                                        className={cx('messages-icon')}
-                                    />
+                                    <Link to={routesConfig.profile}>
+                                        <MessagesIcon className={cx('messages-icon')} />
+                                    </Link>
                                 </button>
                             </Tippy>
 
-                            <Tippy
-                                delay={[0, 200]}
-                                content="Inbox"
-                                placement="bottom"
-                            >
+                            <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon className={cx('inbox-icon')} />
                                 </button>
@@ -162,10 +151,7 @@ function Header() {
                         </>
                     )}
 
-                    <Menu
-                        items={currentUser ? userMenu : MENU_ITEMS}
-                        onChange={handleMenuChange}
-                    >
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange} hideOnClick>
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
@@ -174,9 +160,7 @@ function Header() {
                                 fallback="https://htmlcss.fullstack.edu.vn/assets/f8_icon.png"
                             />
                         ) : (
-                            <button className={cx('more-btn')}>
-                                {<FontAwesomeIcon icon={faEllipsisVertical} />}
-                            </button>
+                            <button className={cx('more-btn')}>{<FontAwesomeIcon icon={faEllipsisVertical} />}</button>
                         )}
                     </Menu>
                 </div>
