@@ -12,6 +12,10 @@
     padding-bottom: 10px;
 }
 
+.menu-body {
+    overflow-y: auto;
+}
+
 .menu-item {
     width: 100%;
     border-radius: 0;
@@ -28,8 +32,9 @@
 
 // Header
 .header {
-    margin-top: -10px;
     position: relative;
+    flex-shrink: 0;
+    margin-top: -10px;
     height: 50px;
 }
 .back-btn {
