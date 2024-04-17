@@ -20,7 +20,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { InboxIcon, MessagesIcon } from '~/components/Icons';
 
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import Search from '../Search';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
@@ -119,7 +119,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-link')}>
+                <Link to={config.routes.home} className={cx('logo-link')}>
                     <img src={images.logo} alt="TikTok" />
                 </Link>
 
@@ -133,7 +133,7 @@ function Header() {
                         <div className={cx('actions-user')}>
                             <Tippy delay={[0, 200]} content="Messages" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <Link to={routesConfig.profile}>
+                                    <Link to={config.routes.profile}>
                                         <MessagesIcon className={cx('messages-icon')} />
                                     </Link>
                                 </button>
