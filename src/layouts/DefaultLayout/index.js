@@ -1,3 +1,4 @@
+import ProsTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Header from '~/layouts/components/Header';
 import styles from './DefaultLayout.module.scss';
@@ -16,5 +17,9 @@ function DefaultLayout({ children }) {
         </div>
     );
 }
+
+DefaultLayout.prosTypes = {
+    children: ProsTypes.node.isRequired,
+};
 
 export default DefaultLayout;

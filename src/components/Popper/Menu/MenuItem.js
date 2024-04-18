@@ -1,3 +1,4 @@
+import ProsTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Button from '~/components/Button';
 import styles from './Menu.module.scss';
@@ -9,15 +10,15 @@ function MenuItem({ data, onClick }) {
         separate: data.separate,
     });
     return (
-        <Button
-            className={classes}
-            leftIcon={data.icon}
-            to={data.to}
-            onClick={onClick}
-        >
+        <Button className={classes} leftIcon={data.icon} to={data.to} onClick={onClick}>
             {data.title}
         </Button>
     );
 }
+
+MenuItem.prosTypes = {
+    data: ProsTypes.object.isRequired,
+    onClick: ProsTypes.func,
+};
 
 export default MenuItem;
