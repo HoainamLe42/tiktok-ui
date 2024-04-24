@@ -1,0 +1,51 @@
+.wrapper {
+    width: 320px;
+    padding: 10px 20px 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.avatar {
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.check {
+    margin-left: 8px;
+    color: #20d5ec;
+}
+
+.user-info {
+    cursor: pointer;
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #161823;
+}
+
+.analytics {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.value {
+    margin-right: 6px;
+
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.label {
+    font-size: 1.7rem;
+}
